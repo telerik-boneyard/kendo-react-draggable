@@ -3,23 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <title>CDN example</title>
-    <link rel="stylesheet" href="../dist/cdn/css/kendo-react-button.css" type="text/css" media="all" />
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
-    <script src="../dist/cdn/js/kendo-react-component.js"></script>
+    <script src="../dist/cdn/js/kendo-react-draggable.js"></script>
   </head>
   <body>
     <div id="content">
     </div>
 
-    <script type="text/javascript">
+    <script>
+        var Component = KendoReactDraggable(React.createClass({
+            render: function() {
+              return (
+                  React.createElement("div", { style: { color: this.props.pressed ? "red": "blue" } }, [ "Press me" ])
+              );
+            }
+        }));
+
       var App = React.createClass({displayName: 'App',
-        render: function() {
-          return (
-            React.createElement(KendoReactComponent, {  })
-          );
-        }
+            render: function() {
+              return React.createElement(Component,{  })
+            }
       });
 
       ReactDOM.render(

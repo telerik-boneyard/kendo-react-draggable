@@ -1,24 +1,68 @@
 {
-  "name": "kendo-react-component-base",
-  "version": "0.1.0",
-  "description": "Kendo UI React component starter template",
-  "main": "dist/npm/js/index.js",
+  "name": "@telerik/kendo-react-draggable",
+  "description": "Kendo UI React component wrapper over the draggable abstraction",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/telerik/kendo-react-draggable.git"
+  },
+  "main": "dist/npm/js/main.js",
   "scripts": {
     "test": "gulp test",
-    "start": "gulp start"
+    "e2e": "gulp e2e",
+    "e2e-npm": "gulp e2e-npm",
+    "start": "gulp start",
+    "lint": "gulp lint",
+    "build-package": "gulp build-npm-package",
+    "build-cdn": "gulp build-cdn",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
     "Kendo UI",
     "React"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "react": "~0.14.3",
     "react-dom": "~0.14.3"
   },
   "devDependencies": {
-    "kendo-react-tasks": "telerik/kendo-react-tasks#master",
-    "gulp": "3.9.0"
+    "@telerik/eslint-config": "1.1.0",
+    "cz-conventional-changelog": "^1.1.5",
+    "ghooks": "^1.0.3",
+    "gulp": "3.9.0",
+    "@telerik/kendo-react-tasks": "^1.0.0",
+    "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
+    "validate-commit-msg": "^1.1.1",
+    "semantic-release": "^4.3.5"
   },
   "author": "Telerik",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "validate-commit-msg",
+      "pre-push": "npm run test"
+    },
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert"
+      ],
+      "warnOnFail": false,
+      "maxSubjectLength": 100
+    }
+  },
+  "dependencies": {
+    "@telerik/kendo-draggable": "^1.1.0"
+  }
 }

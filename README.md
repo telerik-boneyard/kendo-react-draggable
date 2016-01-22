@@ -1,30 +1,72 @@
-A starter repository for Kendo UI React components, which provides the basic directory structure and dependencies.
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![npm version](https://badge.fury.io/js/%40telerik%2Fkendo-react-draggable.svg)](https://badge.fury.io/js/%40telerik%2Fkendo-react-draggable)
+[![Build Status](https://travis-ci.org/telerik/kendo-react-draggable.svg?branch=master)](https://travis-ci.org/telerik/kendo-react-draggable)
 
-## Structure
+# Kendo UI Draggable React Component
 
-- The `src` directory contains the component source code. All files should be have the `.jsx` extensions so that the build scripts may pick them.
-- The `src/bundle.jsx` file should import and re-export all public components of the package. It is used for the `build-cdn` task.
-- The `src/index.jsx` is the main entry point for the NPM package (as specified by the `package.json`). The `build-npm-package` transpiles it to `dist/npm/js/index.js`;
-- The `src/kendo-component.jsx` file is the actual sample component implementation.
-- The `src/util.jsx` is an optional example of an additional file - you may remove it if unnecessary.
+A [higher-order react component](https://egghead.io/lessons/react-react-fundamentals-higher-order-components-replaces-mixins) that wraps the [Kendo Draggable abstraction](https://github.com/telerik/kendo-draggable).
 
-- The `examples` directory hosts the demos for the component. As a bare minimum, the component should have a `basic usage` and a `CDN` example.  The `CDN` example should work as expected after the `build-cdn` task has been run.
-- The `test` directory contains the component tests. They are transpiled just like the source code itself, and are run with Jasmine in NodeJS.
+## Installation
 
-- The `docs` directory contains markdown files that document the specifics of the component.
+The library is published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in `http://npmjs.org/`.
 
-## Usage
+Install it using NPM:
 
-- Fork the repository;
-- Change the package name/description in `package.json`;
-- Change the library name in `gulpfile.js`;
-- Change the `src/kendo-component.jsx` file name to something more meaningful;
-- Delete the current contents and put something nice in `README.md`.
+```sh
+npm install --save @telerik/kendo-react-draggable;
+```
 
-## Gulp tasks
+Once installed, import the module:
 
-- `build-npm-package` - builds the scripts and styles in `dist/npm` in CommonJS format;
-- `build-cdn` - builds the scripts and styles in `dist/cdn` in UMD format.
-- `start` - starts the webpack-dev-server (with browsersync in front of it) - suitable for example preview, development and testing.
-- `test` - runs the tests with Jasmine in NodeJS.
-- `watch-test` - runs the tests in watch mode.
+```jsx
+// ES2015 module syntax
+import Draggable from '@telerik/kendo-react-draggable';
+```
+
+```jsx
+// CommonJS format
+var Draggable = require('@telerik/kendo-react-draggable');
+```
+
+## Basic Usage
+
+```html-preview
+  <div id="app"></div>
+```
+```jsx
+import * as React from 'react';
+import ReactDOM from 'react-dom';
+import Draggable from '@telerik/kendo-react-draggable';
+
+class Component extends React.Component {
+    static propTypes = {
+        pageX: React.PropTypes.number,
+        pageY: React.PropTypes.number,
+        pressed: React.PropTypes.bool
+    };
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        if (this.props.pressed) {
+            return (<div {...this.props} style={{ color: "red" }}>
+                <div>PageX: {this.props.pageX}</div>
+                <div>PageY: {this.props.pageY}</div>
+            </div>);
+        }
+
+        return <span>Press me</span>;
+    }
+}
+
+const DraggableComponent = Draggable(Component);
+
+ReactDOM.render(
+    <DraggableComponent />,
+        document.getElementById('app')
+);
+```
+
+For more information about the underlying draggable implementation, check the [kendo draggable](https://github.com/telerik/kendo-draggable) package README.
