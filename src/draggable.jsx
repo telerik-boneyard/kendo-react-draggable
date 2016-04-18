@@ -3,28 +3,50 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import DomDraggable from '@telerik/kendo-draggable';
 
+function noop() { }
+
 export default function(Component) {
     return class extends React.Component {
+        constructor(props) {
+            super(props);
+            const { onPress = noop, onDrag = noop, onRelease = noop } = props;
+            this.onPressHandler = onPress;
+            this.onDragHandler = onDrag;
+            this.onReleaseHandler = onRelease;
+        }
+
         state = {
             pressed: false,
             pageX: NaN,
             pageY: NaN
         };
 
-        onPress = (e) =>
+        onPress = (e) => {
+            this.onPressHandler(e);
             this.setState({ pressed: true, ...e });
+        };
 
-        onDrag = (e) =>
+        onDrag = (e) => {
+            this.onDragHandler(e);
             this.setState({ pageX: e.pageX, pageY: e.pageY });
+        };
 
-        onRelease = () =>
+        onRelease = (e) => {
+            this.onReleaseHandler(e);
             this.setState({ pressed: false, pageX: NaN, pageY: NaN });
+        };
 
         draggable = new DomDraggable({
             press: this.onPress,
             drag: this.onDrag,
             release: this.onRelease
         });
+
+        static propTypes = {
+            onDrag: React.PropTypes.func,
+            onPress: React.PropTypes.func,
+            onRelease: React.PropTypes.func
+        };
 
         getRef = (child) =>
             this.childRef = child;

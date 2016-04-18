@@ -55,3 +55,40 @@ describe('DraggableComponent', withRoot(root => {
         component.should.not.have.class("pressed");
     });
 }));
+
+describe('Events', withRoot(root => {
+    let component;
+    let handler;
+
+    it('calls onPress', () => {
+        handler = jasmine.createSpy("callback");
+
+        ReactDOM.render(<DraggableComponent onPress={handler} />, root[0]);
+        component = root.children().eq(0);
+        user.mousedown(component[0], 100, 100);
+        expect(handler).toHaveBeenCalled();
+        user.mouseup(component[0], 100, 100);
+    });
+
+    it('calls onDrag', () => {
+        handler = jasmine.createSpy("callback");
+
+        ReactDOM.render(<DraggableComponent onDrag={handler} />, root[0]);
+        component = root.children().eq(0);
+        user.mousedown(component[0], 100, 100);
+        user.mousemove(component[0], 150, 120);
+        expect(handler).toHaveBeenCalled();
+        user.mouseup(component[0], 100, 100);
+    });
+
+    it('calls onRelease', () => {
+        handler = jasmine.createSpy("callback");
+
+        ReactDOM.render(<DraggableComponent onRelease={handler} />, root[0]);
+        component = root.children().eq(0);
+        user.mousedown(component[0], 100, 100);
+        user.mousemove(component[0], 150, 120);
+        user.mouseup(component[0], 100, 100);
+        expect(handler).toHaveBeenCalled();
+    });
+}));
