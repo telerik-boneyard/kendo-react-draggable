@@ -1,7 +1,7 @@
 {
   "name": "@telerik/kendo-react-draggable",
   "description": "Kendo UI React component wrapper over the draggable abstraction",
-  "version": "1.0.0",
+  "version": "0.0.0-semantically-released",
   "repository": {
     "type": "git",
     "url": "https://github.com/telerik/kendo-react-draggable.git"
