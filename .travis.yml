@@ -26,7 +26,7 @@ before_script:
 script:
   - npm run lint
   - npm run e2e
-    #- npm run build-package
+  - npm run build-package
 after_success:
     #- npm run semantic-release
 branches:
