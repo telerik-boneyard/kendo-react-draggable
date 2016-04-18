@@ -8,7 +8,7 @@ A [higher-order react component](https://egghead.io/lessons/react-react-fundamen
 
 ## Installation
 
-The library is published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in `http://npmjs.org/`.
+The library is published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
 
 Install it using NPM:
 
