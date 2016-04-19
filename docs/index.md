@@ -1,3 +1,11 @@
+---
+title: Overview
+page_title: Overview | Kendo UI Draggable Package for React
+slug: overview_draggable_kendouiforreact
+position: 1
+---
+
+{% raw %}
 # Kendo React Draggable Overview
 
 The Kendo React Draggable is a [higher-order react component](https://egghead.io/lessons/react-react-fundamentals-higher-order-components-replaces-mixins)
@@ -88,3 +96,5 @@ ReactDOM.render(
         document.getElementById('app')
 );
 ```
+
+{% endraw %}
