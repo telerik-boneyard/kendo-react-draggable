@@ -1,19 +1,23 @@
 ---
 title: Overview
-page_title: Overview | Kendo UI Draggable Package for React
+page_title: Overview | Kendo UI Draggable
+description: "Use the Kendo UI Draggable component in a React project."
 slug: overview_draggable_kendouiforreact
 position: 1
 ---
 
-{% raw %}
-# Kendo React Draggable Overview
+# Draggable Overview
 
-The Kendo React Draggable is a [higher-order react component](https://egghead.io/lessons/react-react-fundamentals-higher-order-components-replaces-mixins)
-that wraps the [Kendo Draggable abstraction](https://github.com/telerik/kendo-draggable).
+The Kendo UI Draggable for React is a [higher-order React component](https://egghead.io/lessons/react-react-fundamentals-higher-order-components-replaces-mixins)
+that wraps the [Kendo UI Draggable abstraction](https://github.com/telerik/kendo-draggable).
 
 The higher-order component passes three properties to the wrapped one - `pressed`, `pageX` and `pageY`.
 
-## Basic Usage
+The Draggable is part of the [kendo-react-draggable npm package](https://www.npmjs.com/package/@telerik/kendo-react-draggable).
+
+## Configuration
+
+### Basic Usage
 
 ```html-preview
   <div id="app"></div>
@@ -50,6 +54,8 @@ ReactDOM.render(
         document.getElementById('app')
 );
 ```
+
+### Events
 
 In addition to the properties, the component also triggers three events: `onPress`, `onDrag`, and `onRelease`.
 
@@ -96,5 +102,3 @@ ReactDOM.render(
         document.getElementById('app')
 );
 ```
-
-{% endraw %}
