@@ -87,7 +87,7 @@ import Draggable from '@telerik/kendo-react-draggable';
 var Draggable = require('@telerik/kendo-react-draggable');
 ```
 
-> To install the npm package, it is recommended that you use Node.js 4.0.0 or later versions.
+> To install the npm package, it is recommended that you use Node.js 5.0.0 or later versions.
 
 ## Browser Support
 
