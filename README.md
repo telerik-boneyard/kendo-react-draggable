@@ -87,6 +87,8 @@ import Draggable from '@telerik/kendo-react-draggable';
 var Draggable = require('@telerik/kendo-react-draggable');
 ```
 
+> To install the npm package, it is recommended that you use Node.js 4.0.0 or later versions.
+
 ## Browser Support
 
 The Draggable component supports the following browsers:
